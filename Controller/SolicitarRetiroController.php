@@ -29,11 +29,11 @@ class SolicitarRetiroController{
         }
 
         $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
+        $this->solicitarRetiroView->redireccionarFormulario();
     }
 
     function mostrarFormularioSolicitarRetiro(){
         $this->solicitarRetiroView->mostrarFormularioSolicitarRetiro();
-        $this->solicitarRetiroView->redireccionarFormulario();
     }
 
 
