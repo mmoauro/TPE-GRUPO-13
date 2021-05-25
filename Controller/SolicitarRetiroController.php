@@ -33,6 +33,7 @@ class SolicitarRetiroController{
 
     function mostrarFormularioSolicitarRetiro(){
         $this->solicitarRetiroView->mostrarFormularioSolicitarRetiro();
+        $this->solicitarRetiroView->redireccionarFormulario();
     }
 
 

@@ -15,4 +15,8 @@ class SolicitarRetiroView {
         $smarty->display('templates/formularioSolicitarRetiro.tpl');
     }
 
+    function redireccionarFormulario () {
+        header("Location: ".BASE_URL."solicitarRetiro");
+    }
+
 }
