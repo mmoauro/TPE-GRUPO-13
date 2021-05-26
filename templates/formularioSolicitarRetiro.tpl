@@ -6,7 +6,7 @@
 <!--div contenido registro de solicitar retiro de materiales, contiene:
     -FORMULARIO-->
     <main class="contenedorRegistro">
-        <form id="form" class="formRegistro" action="confirmarSolicitudDeRetiro" method="POST">
+        <form id="form" class="formRegistro" action="confirmarSolicitudDeRetiro" method="POST" enctype="multipart/form-data">
             <h4 class="tituloRegistro">Solicitar retiro de materiales</h4>
             
             <input class="inputForm" type="text" placeholder="Ingrese su nombre" name="nombre" required>
@@ -36,6 +36,8 @@
             <label for="male">Entra en la caja de una camioneta</label><br>
             <input type="radio" id="" name="volumen" value="Es necesario un camión">
             <label for="female">Es necesario un camión</label><br>
+           
+            <label name="imagen"> Imagen: <input type="file" name="upload[]" accept=".png,.jpg" multiple /></label>
             
             <input class="botonSubmit" id="botonSubmit" type="submit" value="Enviar solicitud">
     

@@ -13,6 +13,11 @@ class SolicitarRetiroModel{
     function agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen){
         $sentencia = $this->db->prepare("INSERT INTO solicitud_retiro(nombre, apellido, direccion, telefono, franja_horaria, volumen) VALUES(?,?,?,?,?,?)");
         $sentencia->execute(array($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen));
+        return $this->db->lastInsertId();
     }
 
+    function agregarImagen($img, $nombre, $id_solicitud){
+        $query = $this->db->prepare('INSERT INTO imagen_material(imagen,nombre_archivo,id_solicitud) VALUES (?,?,?)');
+        $query->execute([$img,$nombre,$id_solicitud]);
+    }
 }

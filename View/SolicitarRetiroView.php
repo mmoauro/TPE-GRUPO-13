@@ -18,7 +18,7 @@ class SolicitarRetiroView {
     }
 
     function redireccionarFormulario () {
-        header("Location: ".BASE_URL."solicitarRetiro");
+        header("Location: ".BASE_URL."solicitar_retiro");
     }
 
 }
