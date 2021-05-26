@@ -29,14 +29,40 @@ class SolicitarRetiroController{
             $longitude = (float)$_POST['longitude'];
             $coordenadas_centro_acopio = array(-37.3238677, -59.1281242);
             $distancia = $this->calcularDistancia(array($latitude, $longitude), $coordenadas_centro_acopio);
+            
+            
             if ($distancia <= 6) {
-                $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
+                $id_solicitud = $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
+                
+                $file_ary = $this->reArrayFiles($_FILES['upload']);
+
+                foreach($file_ary as $file){
+                    $path = 'images/'. uniqid("", true) . "." . strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                    move_uploaded_file($file['tmp_name'], $path);
+                    $this->solicitarRetiroModel->agregarImagen($path, $id_solicitud);
+                }
+                
                 $this->solicitarRetiroView->redireccionarFormulario();
             }
             else
                 echo "Tiene que llevar los materiales al centro de acopio debido a que la distancia es mayor a 6 km.";
         }
 
+    }
+
+    private function reArrayFiles(&$file_post) {
+
+        $file_ary = array();
+        $file_count = count($file_post['name']);
+        $file_keys = array_keys($file_post);
+    
+        for ($i=0; $i<$file_count; $i++) {
+            foreach ($file_keys as $key) {
+                $file_ary[$i][$key] = $file_post[$key][$i];
+            }
+        }
+    
+        return $file_ary;
     }
 
     private function calcularDistancia ($coord1, $coord2) {
