@@ -1,0 +1,137 @@
+/*Body*/
+body {
+    padding: 0;
+    margin: 0;  
+    font-family: 'calibri';
+    background-position: center center;
+    background: radial-gradient(circle,  #D5F5E3, #58D68D);
+}
+
+body::-webkit-scrollbar { /*Para cambiarle el estilo a la barra de scroll*/
+    width: 10px;
+    background-color: black;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 3px;
+}
+
+/*Header: Logo y barra de navegacion*/
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.menuLogo {
+    width: 80px;
+    justify-content: flex-start;
+    margin: 5px 0px 3px 10px;
+    border-radius: 50px;
+}
+
+nav {
+    display: block;
+    width: auto;
+}
+
+.barraNavegacion {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 10px;
+    background-color: black;
+    padding-left: 0;
+}
+
+.header ul.barraNavegacion li {
+    list-style: none;
+    margin: 5px 5px;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px;
+    transition: background-color .5s;
+}
+
+.header ul.barraNavegacion li:hover {
+    background-color: #58D68D;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*Contenido*/
+main.contenido {
+    display: block;
+    justify-content: space-around;
+}
+
+/*Footer*/
+.footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+.textoFooter {
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+/*formularioRetiro.html-------------------------------------------------------------------------------------------------------*/
+.contenedorRegistro {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    border: solid white 2px;
+    margin: 5px;
+}
+
+.formRegistro {
+    text-align: center;
+    background-color: #58D68D;
+    margin: 10px 0;
+    padding: 0 20px;
+    border-radius: 8px;
+}
+
+.tituloRegistro {
+    font-size: 30px;
+    color: white;
+}
+
+.inputForm {
+    display: block;
+    width: 80%;
+    background-color: #FDFEFE  ;
+    color: black;
+    padding: 10px 30px 10px 10px;
+    margin-bottom: 10px;
+    border: solid black 2px;
+    font-size: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 3px auto;
+}
+
+.tituloInputRadio {
+    display: block;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.botonSubmit {
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 30px;
+    border: solid #D5F5E3 2px; 
+    margin: 10px;
+    border-radius: 20px;
+}
