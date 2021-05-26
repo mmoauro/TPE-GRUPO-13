@@ -14,8 +14,8 @@
         <img id="menuLogo" src="images/logo_reciclaje.jpg" alt="menu-logo" class="menuLogo">
         <nav>
             <ul id="barraNav" class="barraNavegacion">
-                <a href="index.html"><li>Inicio</li></a>
-                <a href="formularioRetiro.html"><li>Solicitar retiro</li></a>
+                <a href="{$base_url}"><li>Inicio</li></a>
+                <a href="{$base_url}solicitar_retiro"><li>Solicitar retiro</li></a>
             </ul>
         </nav>
     </header>

@@ -11,9 +11,9 @@
     $r = new Router();
 
     // RUTAS:
-    $r->addRoute("solicitarRetiro", "GET", "SolicitarRetiroController", "mostrarFormularioSolicitarRetiro");
-    $r->addRoute("postCercanos", "GET", "PostCercanosController", "mostrarPostCercanos");
-    $r->addRoute("confirmarSolicitudDeRetiro", "POST", "SolicitarRetiroController", "agregarSolicitudDeRetiro"); //SolicitarRetiro
+    $r->addRoute("/", "GET", "PostCercanosController", "mostrarPostCercanos");
+    $r->addRoute("solicitar_retiro", "GET", "SolicitarRetiroController", "mostrarFormularioSolicitarRetiro");
+    $r->addRoute("confirmar_solicitud_retiro", "POST", "SolicitarRetiroController", "agregarSolicitudDeRetiro"); //SolicitarRetiro
 
 
     //run
