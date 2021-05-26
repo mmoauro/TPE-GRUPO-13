@@ -135,6 +135,37 @@ main.contenido {
     margin: 10px;
     border-radius: 20px;
 }
+
+/*-------------------------------------------------------- LISTA DE MATERIALES -----------------------------------------*/
+
+.contenedor-lista-materiales {
+    background-color: white;
+    width: 25%;
+    border: solid 2px black;
+    margin: 10% 2%;
+}
+
+.titulo-lista-materiales {
+    margin: 20px;
+    text-align: center;
+}
+
+.lista-materiales {
+    list-style: none;
+    padding: 5px;
+}
+
+.lista-materiales li {
+    padding: 5px 10px;
+    border: solid 3px gray;
+    margin: 10px 5px;
+}
+
+.nombre-material, .descripcion-material {
+    margin: 0;
+    padding: 5px;
+    padding-top: 10px;
+    font-weight: bold;
 .map {
     margin: 13px 0 0 15%;
     min-height: 400px;

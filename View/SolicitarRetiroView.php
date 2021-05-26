@@ -4,15 +4,17 @@ require_once('./libs/smarty/Smarty.class.php');
 
 //Creo la clase
 class SolicitarRetiroView {
+    private $smarty;
 
     //Creo el constructor
     public function __construct(){
+        $this->smarty = new Smarty();
+        $this->smarty->assign('base_url', BASE_URL);
     }
 
     //Muestro el formulario para solicitar un retiro
     function mostrarFormularioSolicitarRetiro(){
-        $smarty = new Smarty();
-        $smarty->display('templates/formularioSolicitarRetiro.tpl');
+        $this->smarty->display('templates/formularioSolicitarRetiro.tpl');
     }
 
     function redireccionarFormulario () {

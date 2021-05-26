@@ -1,6 +1,7 @@
 <?php
     //Incluyo los archivos
     require_once 'Controller/SolicitarRetiroController.php';
+    require_once 'Controller/PostCercanosController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -10,8 +11,9 @@
     $r = new Router();
 
     // RUTAS:
-    $r->addRoute("solicitarRetiro", "GET", "SolicitarRetiroController", "mostrarFormularioSolicitarRetiro");
-    $r->addRoute("confirmarSolicitudDeRetiro", "POST", "SolicitarRetiroController", "agregarSolicitudDeRetiro"); //SolicitarRetiro
+    $r->addRoute("/", "GET", "PostCercanosController", "mostrarPostCercanos");
+    $r->addRoute("solicitar_retiro", "GET", "SolicitarRetiroController", "mostrarFormularioSolicitarRetiro");
+    $r->addRoute("confirmar_solicitud_retiro", "POST", "SolicitarRetiroController", "agregarSolicitudDeRetiro"); //SolicitarRetiro
 
 
     //run
