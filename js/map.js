@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initializeMap () {
         let map = L.map('map', {
-            center: [-37.3238677, -59.1281242],
+            center: [-37.325704, -59.1299634],
             zoom: 17
         });
         L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
