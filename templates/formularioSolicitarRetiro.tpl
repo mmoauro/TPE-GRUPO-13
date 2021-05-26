@@ -6,7 +6,7 @@
 <!--div contenido registro de solicitar retiro de materiales, contiene:
     -FORMULARIO-->
     <main class="contenedorRegistro">
-        <form id="form" class="formRegistro" action="confirmarSolicitudDeRetiro" method="POST" enctype="multipart/form-data">
+        <form id="form" class="formRegistro" action="confirmar_solicitud_retiro" method="POST" enctype="multipart/form-data">
             <h4 class="tituloRegistro">Solicitar retiro de materiales</h4>
             
             <input class="inputForm" type="text" placeholder="Ingrese su nombre" name="nombre" required>

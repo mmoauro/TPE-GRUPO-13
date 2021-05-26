@@ -37,8 +37,9 @@ class SolicitarRetiroController{
                 $file_ary = $this->reArrayFiles($_FILES['upload']);
 
                 foreach($file_ary as $file){
-                    $fileTmpName= file_get_contents($file['tmp_name']);
-                    $this->solicitarRetiroModel->agregarImagen($fileTmpName, $file['name'], $id_solicitud);   
+                    $path = 'images/'. uniqid("", true) . "." . strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+                    move_uploaded_file($file['tmp_name'], $path);
+                    $this->solicitarRetiroModel->agregarImagen($path, $id_solicitud);
                 }
                 
                 $this->solicitarRetiroView->redireccionarFormulario();
