@@ -166,4 +166,9 @@ main.contenido {
     padding: 5px;
     padding-top: 10px;
     font-weight: bold;
+.map {
+    margin: 13px 0 0 15%;
+    min-height: 400px;
+    height: 100%;
+    max-height: 400px;
 }
