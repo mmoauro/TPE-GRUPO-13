@@ -18,18 +18,41 @@ class SolicitarRetiroController{
     //Agrego una solicitud de retiro
     function agregarSolicitudDeRetiro(){
         //Guardo todos los datos que ingreso el usuario
-        if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["direccion"]) &&
-                 isset($_POST["telefono"]) && isset($_POST["franja_horaria"]) && isset($_POST["volumen"])){
+        if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["direccion"]) && isset($_POST["telefono"]) && isset($_POST["franja_horaria"]) && isset($_POST["volumen"]) && isset($_POST['latitude']) && isset($_POST['longitude'])) {
             $nombre = $_POST["nombre"];
             $apellido = $_POST["apellido"];
             $direccion = $_POST["direccion"];
             $telefono = $_POST["telefono"];
             $franja_horaria = $_POST["franja_horaria"];
             $volumen = $_POST["volumen"];
+            $latitude = (float)$_POST['latitude'];
+            $longitude = (float)$_POST['longitude'];
+            $coordenadas_centro_acopio = array(-37.3238677, -59.1281242);
+            $distancia = $this->calcularDistancia(array($latitude, $longitude), $coordenadas_centro_acopio);
+            if ($distancia <= 6) {
+                $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
+                $this->solicitarRetiroView->redireccionarFormulario();
+            }
+            else
+                echo "Tiene que llevar los materiales al centro de acopio debido a que la distancia es mayor a 6 km.";
         }
 
-        $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
-        $this->solicitarRetiroView->redireccionarFormulario();
+    }
+
+    private function calcularDistancia ($coord1, $coord2) {
+        $lat1 = deg2rad($coord1[0]);
+        $lat2 = deg2rad($coord2[0]);
+        $lon1 = deg2rad($coord1[1]);
+        $lon2 = deg2rad($coord2[1]);
+
+
+        $theta = $lon1 - $lon2;
+        $dist = sin($lat1) * sin($lat2) +  cos($lat1) * cos($lat2) * cos($theta);
+        $dist = acos($dist);
+        $dist = rad2deg($dist);
+        $dist = $dist * 60 * 1.1515 * 1.609344;
+
+        return $dist;
     }
 
     function mostrarFormularioSolicitarRetiro(){

@@ -1,14 +1,24 @@
 {include file="header.tpl"} <!--Incluyo el header-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
 
 <!--div contenido registro de solicitar retiro de materiales, contiene:
     -FORMULARIO-->
     <main class="contenedorRegistro">
-        <form class="formRegistro" action="confirmarSolicitudDeRetiro" method="POST">
+        <form id="form" class="formRegistro" action="confirmarSolicitudDeRetiro" method="POST">
             <h4 class="tituloRegistro">Solicitar retiro de materiales</h4>
             
             <input class="inputForm" type="text" placeholder="Ingrese su nombre" name="nombre" required>
             <input class="inputForm" type="text" placeholder="Ingrese su apellido" name="apellido" required>
             <input class="inputForm" type="text" placeholder="Ingrese su direccion" name="direccion" required>
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+            <section id="map-container" class="map-section">
+                <div class="map" id="map">
+
+                </div>
+            </section>
             <input class="inputForm" type="tel" placeholder="Ingrese su telefono" name="telefono" required>
             
             <label class="tituloInputRadio">Seleccione su franja horaria de preferencia</label>
