@@ -2,10 +2,6 @@ Criterios de DONE:
 + Uso de buenas prácticas en la implementación del código: incluir comentarios, documentación, 
 evitar codigo repetido, código claro sin nombres de variables o funciones que sean ambiguos o poco representativos.
 
-+ Testeo: la nueva funcionalidad debe cumplir con un resultado esperado, esto será documentado en un 
-archivo aparte donde se debe indicar la entrada de datos, respuesta esperada, la respuesta dada y, en
-caso de que haya algún bug, evidenciarlo con una captura de pantalla.
-
 + Que la implementación sea testeada por al menos una persona del Development Team ajena
 al desarrollo de dicha implementación, y la apruebe. Asegurar una cobertura del testing del 80%.
 
