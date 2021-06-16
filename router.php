@@ -5,6 +5,7 @@
     require_once 'Controller/MaterialController.php';
     require_once 'RouterClass.php';
     require_once 'Controller/UserController.php';
+    require_once 'Controller/PesajeController.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -17,6 +18,8 @@
     $r->addRoute("home", "GET", "PostCercanosController", "mostrarPostCercanos");
     $r->addRoute("solicitar_retiro", "GET", "SolicitarRetiroController", "mostrarFormularioSolicitarRetiro");
     $r->addRoute("confirmar_solicitud_retiro", "POST", "SolicitarRetiroController", "agregarSolicitudDeRetiro"); //SolicitarRetiro
+    $r->addRoute("registrar_peso", "GET", "PesajeController", "mostrarFormularioPesaje");
+    $r->addRoute("insertar_peso_db", "POST", "PesajeController", "agregarPesaje");
     
     //Tabla usuario
     $r->addRoute("login", "GET", "UserController", "Login");
