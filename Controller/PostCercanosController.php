@@ -1,21 +1,22 @@
 <?php
 
+require_once 'Controller/Controller.php';
 require_once './Model/PostCercanosModel.php';
 require_once './View/PostCercanosView.php';
+require_once 'Controller/MaterialController.php';
 
-class PostCercanosController {
+class PostCercanosController extends Controller {
 
-    //Atributos
-    private $model, $view;
 
-    //Creo el constructor
     public function __construct(){
+        parent::__construct();
         $this->model = new PostCercanosModel();
-        $this->view = new PostCercanosView();
+        $this->view = new PostCercanosView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
     }
 
     function mostrarPostCercanos() {
-        $materiales = $this->model->getMateriales();
+        $material_controller = new MaterialController();
+        $materiales = $material_controller->getMateriales();
         $this->view->mostrarPostCercanos($materiales);
     }
 

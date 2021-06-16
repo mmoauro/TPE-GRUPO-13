@@ -1,15 +1,11 @@
 <?php
-//Incluyo lel archivo
-require_once('./libs/smarty/Smarty.class.php');
 
-//Creo la clase
-class SolicitarRetiroView {
-    private $smarty;
+require_once 'View/View.php';
 
-    //Creo el constructor
-    public function __construct(){
-        $this->smarty = new Smarty();
-        $this->smarty->assign('base_url', BASE_URL);
+class SolicitarRetiroView extends View{
+
+    public function __construct($is_secretaria, $is_logged){
+        parent::__construct($is_secretaria, $is_logged);
     }
 
     //Muestro el formulario para solicitar un retiro

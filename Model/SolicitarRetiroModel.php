@@ -1,13 +1,7 @@
 <?php
+require_once 'Model/Model.php';
 
-class SolicitarRetiroModel{
-    private $db;
-
-    function __construct () {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_centro_acopio;charset=utf8', 'root', '');
-    }
-
-    //Conexion a la base de datos
+class SolicitarRetiroModel extends Model {
 
     //Agrego una solicitud de retiro a la base de datos
     function agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen){

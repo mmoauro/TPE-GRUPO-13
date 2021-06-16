@@ -2,6 +2,7 @@
     //Incluyo los archivos
     require_once 'Controller/SolicitarRetiroController.php';
     require_once 'Controller/PostCercanosController.php';
+    require_once 'Controller/MaterialController.php';
     require_once 'RouterClass.php';
     require_once 'Controller/UserController.php';
     
@@ -19,10 +20,17 @@
     
     //Tabla usuario
     $r->addRoute("login", "GET", "UserController", "Login");
+    $r->addRoute("logout", "GET", "UserController", "logout");
     $r->addRoute("verificar", "POST", "UserController", "Verificar");
     $r->setDefaultRoute('PostCercanosController', 'mostrarPostCercanos');
 
 
-    //run
+    // Rutas materiales aceptables.
+    $r->addRoute("material/delete/:ID", "GET", "MaterialController", "deleteMaterial");
+    $r->addRoute("material/update/:ID", "POST", "MaterialController", "updateMaterial");
+    $r->addRoute("material/add", "POST", "MaterialController", "insertMaterial");
+
+
+//run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
 ?>
