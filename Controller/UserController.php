@@ -2,14 +2,13 @@
 
 require_once "./Model/UserModel.php";
 require_once "./View/UserView.php";
+require_once 'Controller/Controller.php';
 
-class UserController{
-
-    private $model;
-    private $view;
+class UserController extends Controller {
 
     function __construct(){
-        $this->view = new UserView();
+        parent::__construct();
+        $this->view = new UserView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
         $this->model = new UserModel();
     }
     
@@ -27,10 +26,7 @@ class UserController{
         if(isset($usuarioDB) && $usuarioDB){
             // Existe el usuario
             if (password_verify($pass, $usuarioDB->contrasenia)){
-                session_start();
-                    $_SESSION["mail"] = $usuarioDB->mail;
-                    $_SESSION["rol"] = $usuarioDB->rol;
-                    $_SESSION['LAST_ACTIVITY'] = time();
+                $this->auth->startSessionVariables($usuarioDB);
                 header("Location: ".BASE_URL."home");
             }else{
                 $this->view->showLogin("Contraseña incorrecta");
@@ -43,9 +39,9 @@ class UserController{
     }
    }
 
-   function CerrarSesion(){
+   function logout (){
         session_start();
         session_destroy();
-        header("Location: ". LOGIN);
+        header("Location: ". BASE_URL);
     }
 }

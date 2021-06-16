@@ -1,15 +1,11 @@
 <?php
-//Incluyo lel archivo
-require_once('./libs/smarty/Smarty.class.php');
 
-class PostCercanosView {
+require_once 'View/View.php';
 
-    private $smarty;
+class PostCercanosView extends View{
 
-    //Creo el constructor
-    public function __construct(){
-        $this->smarty = new Smarty();
-        $this->smarty->assign('base_url', BASE_URL);
+    public function __construct($is_secretaria, $is_logged){
+        parent::__construct($is_secretaria, $is_logged);
     }
 
 

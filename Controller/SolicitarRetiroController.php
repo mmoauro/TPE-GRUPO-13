@@ -1,18 +1,16 @@
 <?php
 //Incluyo los archivos
+require_once 'Controller/Controller.php';
 require_once './Model/SolicitarRetiroModel.php';
 require_once './View/SolicitarRetiroView.php';
 
 //Creo la clase
-class SolicitarRetiroController{
-    //Atributos
-    private $solicitarRetiroModel;
-    private $solicitarRetiroView;
+class SolicitarRetiroController extends Controller {
 
-    //Creo el constructor
     public function __construct(){
-        $this->solicitarRetiroModel = new SolicitarRetiroModel();
-        $this->solicitarRetiroView = new SolicitarRetiroView();
+        parent::__construct();
+        $this->model = new SolicitarRetiroModel();
+        $this->view = new SolicitarRetiroView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
     }
 
     //Agrego una solicitud de retiro
@@ -32,17 +30,17 @@ class SolicitarRetiroController{
             
             
             if ($distancia <= 6) {
-                $id_solicitud = $this->solicitarRetiroModel->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
+                $id_solicitud = $this->model->agregarSolicitudDeRetiro($nombre, $apellido, $direccion, $telefono, $franja_horaria, $volumen);
                 
                 $file_ary = $this->reArrayFiles($_FILES['upload']);
 
                 foreach($file_ary as $file){
                     $path = 'images/'. uniqid("", true) . "." . strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
                     move_uploaded_file($file['tmp_name'], $path);
-                    $this->solicitarRetiroModel->agregarImagen($path, $id_solicitud);
+                    $this->model->agregarImagen($path, $id_solicitud);
                 }
                 
-                $this->solicitarRetiroView->redireccionarFormulario();
+                $this->view->redireccionarFormulario();
             }
             else
                 echo "Tiene que llevar los materiales al centro de acopio debido a que la distancia es mayor a 6 km.";
@@ -82,7 +80,7 @@ class SolicitarRetiroController{
     }
 
     function mostrarFormularioSolicitarRetiro(){
-        $this->solicitarRetiroView->mostrarFormularioSolicitarRetiro();
+        $this->view->mostrarFormularioSolicitarRetiro();
     }
 
 
