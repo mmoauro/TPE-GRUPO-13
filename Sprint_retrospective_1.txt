@@ -1,0 +1,12 @@
+FUNCIONO BIEN
+- buena estimacion para las user stories
+- buena distribubcion de la tareas 
+
+FUNCIONO MAL 
+- falta de documentacion para testeo 
+
+
+QUE PODRIAMOS MEJORAR 
+- distribuir mejor la interfaz de la pagina 
+- buenas practicas no es necesario en los criterios 
+
