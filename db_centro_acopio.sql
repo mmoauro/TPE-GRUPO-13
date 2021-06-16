@@ -1,11 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2021 a las 21:36:20
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.6
+
+-- Host: localhost
+-- Generation Time: Jun 16, 2021 at 04:58 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,12 +20,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_centro_acopio`
+-- Database: `db_centro_acopio`
 --
+CREATE DATABASE IF NOT EXISTS `db_centro_acopio` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_centro_acopio`;
 
 -- --------------------------------------------------------
 
 --
+
 -- Estructura de tabla para la tabla `cartonero`
 --
 
@@ -48,6 +53,7 @@ INSERT INTO `cartonero` (`id`, `nombre`, `apellido`, `dni`, `direccion`, `fecha_
 
 --
 -- Estructura de tabla para la tabla `imagen_solicitud`
+
 --
 
 CREATE TABLE `imagen_solicitud` (
@@ -59,7 +65,7 @@ CREATE TABLE `imagen_solicitud` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `material`
+-- Table structure for table `material`
 --
 
 CREATE TABLE `material` (
@@ -69,6 +75,7 @@ CREATE TABLE `material` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+
 -- Volcado de datos para la tabla `material`
 --
 
@@ -96,10 +103,11 @@ CREATE TABLE `pesaje` (
 INSERT INTO `pesaje` (`id`, `peso`, `id_material`, `id_cartonero`) VALUES
 (1, 10, 1, 3);
 
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitud_retiro`
+-- Table structure for table `solicitud_retiro`
 --
 
 CREATE TABLE `solicitud_retiro` (
@@ -122,7 +130,7 @@ INSERT INTO `solicitud_retiro` (`id`, `nombre`, `apellido`, `direccion`, `telefo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -135,10 +143,18 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `mail`, `contrasenia`, `rol`) VALUES
+(1, 'Manuel', 'Moauro', 'manuelmoauro1@gmail.com', '$2y$10$s/i8RKXSwS8jNUKkZEwhBujtwXjCBdVgZBWcP9aGWVXl.tziz4eMq', 1);
+
+--
+-- Indexes for dumped tables
 --
 
 --
+
 -- Indices de la tabla `cartonero`
 --
 ALTER TABLE `cartonero`
@@ -146,18 +162,20 @@ ALTER TABLE `cartonero`
 
 --
 -- Indices de la tabla `imagen_solicitud`
+
 --
 ALTER TABLE `imagen_solicitud`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_SOLICITUD` (`id_solicitud`);
 
 --
--- Indices de la tabla `material`
+-- Indexes for table `material`
 --
 ALTER TABLE `material`
   ADD PRIMARY KEY (`id`);
 
 --
+
 -- Indices de la tabla `pesaje`
 --
 ALTER TABLE `pesaje`
@@ -167,21 +185,23 @@ ALTER TABLE `pesaje`
 
 --
 -- Indices de la tabla `solicitud_retiro`
+
 --
 ALTER TABLE `solicitud_retiro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
+
 -- AUTO_INCREMENT de la tabla `cartonero`
 --
 ALTER TABLE `cartonero`
@@ -189,11 +209,13 @@ ALTER TABLE `cartonero`
 
 --
 -- AUTO_INCREMENT de la tabla `imagen_solicitud`
+
 --
 ALTER TABLE `imagen_solicitud`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+
 -- AUTO_INCREMENT de la tabla `material`
 --
 ALTER TABLE `material`
@@ -207,22 +229,23 @@ ALTER TABLE `pesaje`
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud_retiro`
+
 --
 ALTER TABLE `solicitud_retiro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `imagen_solicitud`
+-- Constraints for table `imagen_solicitud`
 --
 ALTER TABLE `imagen_solicitud`
   ADD CONSTRAINT `FK_SOLICITUD` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud_retiro` (`id`);

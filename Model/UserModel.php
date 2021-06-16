@@ -1,12 +1,7 @@
 <?php
+require_once 'Model/Model.php';
 
-class UserModel{
-
-    private $db;
-
-    function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_centro_acopio;charset=utf8', 'root', '');
-    }
+class UserModel extends Model {
 
     function GetUser($usuario){
         $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE mail=?");
