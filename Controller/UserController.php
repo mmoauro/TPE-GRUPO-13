@@ -8,7 +8,8 @@ class UserController extends Controller {
 
     function __construct(){
         parent::__construct();
-        $this->view = new UserView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
+        $this->view = new UserView($this->auth->getIsSecretaria(), 
+        $this->auth->getIsLogged());
         $this->model = new UserModel();
     }
     
@@ -40,7 +41,7 @@ class UserController extends Controller {
    }
 
    function logout (){
-        session_start();
+        //session_start();
         session_destroy();
         header("Location: ". BASE_URL);
     }

@@ -13,7 +13,7 @@ class AuthHelper {
     }
 
     function getIsSecretaria () {
-        return $_SESSION['user']->rol == 1;
+        return isset($_SESSION['user']) && $_SESSION['user']->rol == 1;
     }
 
     function getIsLogged () {
