@@ -21,17 +21,23 @@ class PesajeController {
     function mostrarFormularioPesaje() {
         $materiales = $this->modelMateriales->getMateriales();
         $cartoneros = $this->modelCartoneros->getCartoneros();
-        $this->view->mostrarPostCercanos($materiales,$cartoneros);
+        $this->view->showFormularioPesaje($materiales,$cartoneros,'');
     }
 
      function agregarPesaje(){
         $materiales = $this->modelMateriales->getMateriales();
         $cartoneros = $this->modelCartoneros->getCartoneros();
-
-        if (!empty($_POST['peso']) && !empty($_POST['material']) && !empty($_POST['cartonero'])){
-            $this->modelPesaje->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero']);
+        $mensaje = '';
+        if($_POST['peso'] >= 0){
+            if (!empty($_POST['peso']) && !empty($_POST['material']) && !empty($_POST['cartonero'])){
+                $this->modelPesaje->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero']);
+                $mensaje = 'Se registro el peso con exito!';
+            }
         }
-        $this->view->mostrarPostCercanos($materiales,$cartoneros);
+        else{
+            $mensaje = "Ingrese un peso valido!";
+        }
+        $this->view->showFormularioPesaje($materiales,$cartoneros,$mensaje);
      }
 
 }

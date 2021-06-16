@@ -30,7 +30,7 @@
             {/if}
             <input class="botonSubmit" id="botonSubmit" type="submit" value="Enviar">
         </form>
-
+        <a class="tituloRegistro">{$mensaje}<a>
         <a href="registrarCartonero" class="tituloRegistro">¿Cartonero no registrado?<a>
     </main>
 

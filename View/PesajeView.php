@@ -14,9 +14,10 @@ class PesajeView {
 
 
     //Muestra, por ahora, solo los materiales que se aceptan
-    function mostrarPostCercanos($materiales,$cartoneros) {
+    function showFormularioPesaje($materiales,$cartoneros, $men) {
         $this->smarty->assign('materiales', $materiales);
         $this->smarty->assign('cartoneros', $cartoneros);
+        $this->smarty->assign('mensaje', $men);
         $this->smarty->display('templates/formularioPesaje.tpl');
     }
 
