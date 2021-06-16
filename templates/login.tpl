@@ -13,7 +13,6 @@
           <label for="">Contraseña: *</label><input type="password" name="password" id="password" placeholder="Contraseña" required>
         </div>
        
-    <p><a href="registrarse">Crea cuenta nueva</a></p>
         <div class="Enviar">
           
           <button id="buttonEnviar">Iniciar sesion</button>

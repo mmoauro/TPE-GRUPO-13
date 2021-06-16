@@ -1,0 +1,14 @@
+Testeo para funcionalidad login:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/a225984784167fbbf1c5869d8e51a6b37d9951cf
+
+Datos de entrada: mail: manuelmoauro1@gmail.com - password: Lj22J8Yy
+Entrada esperada: Inicio de sesion satisfactorio
+Entrada recibida: Inicio de sesion satisfactorio
+
+Datos de entrada: mail: manuelmoauro1@hotmail.com - password: Lj22J8Yy
+Entrada esperada: Usuario no encontrado
+Entrada recibida: Usuario no encontrado
+
+Datos de entrada: mail: manuelmoauro1@gmail.com - password: sasasa
+Entrada esperada: Contraseña incorrecta
+Entrada recibida: Contraseña incorrecta
