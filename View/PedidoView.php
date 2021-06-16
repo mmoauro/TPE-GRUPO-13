@@ -1,19 +1,18 @@
 <?php
 //Incluyo lel archivo
-require_once('./libs/smarty/Smarty.class.php');
+
+require_once('View/View.php');
 
 //Creo la clase
-class PedidoView {
+class PedidoView extends View {
 
-    public function __construct(){
-        
+    public function __construct($is_secretaria, $is_logged){
+        parent:: __construct($is_secretaria, $is_logged);
     }
 
-    function showPedidos($pedidos, $is_logged){
-        $smarty = new Smarty();
-        $smarty->assign('pedidos', $pedidos);
-        $smarty->assign('is_logged', $is_logged);
-        $smarty->display('templates/listaPedidos.tpl');
+    function showPedidos($pedidos){
+        $this->smarty->assign('pedidos', $pedidos);
+        $this->smarty->display('templates/listaPedidos.tpl');
     }
 
 }

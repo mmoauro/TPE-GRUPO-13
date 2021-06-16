@@ -1,0 +1,6 @@
+Testeo para funcionalidad de lista de pedidos de retiro:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/0dbdacbbc823f2d5997f4dc89ebe70f07da94eef
+
+Accion: clickear boton "lista de pedidos" del nav.
+Resultado esperado: direccionamiento a la seccion con la lista de pedidos.
+Resultado obtenido: direccionamiento a la seccion con la lista de pedidos.
