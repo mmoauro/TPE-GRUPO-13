@@ -8,7 +8,8 @@ class UserController extends Controller {
 
     function __construct(){
         parent::__construct();
-        $this->view = new UserView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
+        $this->view = new UserView($this->auth->getIsSecretaria(), 
+        $this->auth->getIsLogged());
         $this->model = new UserModel();
     }
     

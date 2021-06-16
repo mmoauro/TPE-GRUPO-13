@@ -6,11 +6,12 @@
     require_once 'RouterClass.php';
     require_once 'Controller/UserController.php';
     require_once 'Controller/PesajeController.php';
+    require_once 'Controller/PedidoController.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("SOLICITAR_RETIRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/solicitarRetiro');
-    
+   
     $r = new Router();
 
     // RUTAS:
@@ -33,6 +34,8 @@
     $r->addRoute("material/update/:ID", "POST", "MaterialController", "updateMaterial");
     $r->addRoute("material/add", "POST", "MaterialController", "insertMaterial");
 
+    //Ruta lista de pedidos
+    $r->addRoute("pedidos", "GET", "PedidoController", "mostrarPedidos");
 
 //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
