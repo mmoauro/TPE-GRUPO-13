@@ -20,6 +20,7 @@
     //Tabla usuario
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("verificar", "POST", "UserController", "Verificar");
+    $r->setDefaultRoute('PostCercanosController', 'mostrarPostCercanos');
 
 
     //run
