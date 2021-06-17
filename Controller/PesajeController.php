@@ -2,35 +2,37 @@
 
 require_once './Model/PostCercanosModel.php';
 require_once './View/PesajeView.php';
-require_once './Model/CartonerosModel.php';
+require_once './Model/CartoneroModel.php';
 require_once './Model/PesajeModel.php';
+require_once 'Controller/Controller.php';
 
-class PesajeController {
+class PesajeController extends Controller {
 
-    //Atributos
-    private $modelCartoneros, $view, $modelMateriales, $modelPesaje;
 
     //Creo el constructor
     public function __construct(){
-        $this->modelMateriales = new PostCercanosModel();
-        $this->modelCartoneros = new CartonerosModel();
-        $this->modelPesaje = new PesajeModel();
-        $this->view = new PesajeView();
+        parent::__construct();
+        $this->view = new PesajeView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
+        $this->model = new PesajeModel();
     }
 
     function mostrarFormularioPesaje() {
-        $materiales = $this->modelMateriales->getMateriales();
-        $cartoneros = $this->modelCartoneros->getCartoneros();
+        $materialModel = new MaterialModel();
+        $materiales = $materialModel->getMateriales();
+        $cartoneroModel = new CartoneroModel();
+        $cartoneros = $cartoneroModel->getCartoneros();
         $this->view->showFormularioPesaje($materiales,$cartoneros,'');
     }
 
      function agregarPesaje(){
-        $materiales = $this->modelMateriales->getMateriales();
-        $cartoneros = $this->modelCartoneros->getCartoneros();
+         $materialModel = new MaterialModel();
+         $materiales = $materialModel->getMateriales();
+         $cartoneroModel = new CartoneroModel();
+         $cartoneros = $cartoneroModel->getCartoneros();
         $mensaje = '';
         if($_POST['peso'] >= 0){
             if (!empty($_POST['peso']) && !empty($_POST['material']) && !empty($_POST['cartonero'])){
-                $this->modelPesaje->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero']);
+                $this->model->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero']);
                 $mensaje = 'Se registro el peso con exito!';
             }
         }

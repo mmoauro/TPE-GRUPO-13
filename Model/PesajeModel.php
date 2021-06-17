@@ -1,12 +1,11 @@
 <?php
+require_once 'Model/Model.php';
 
-class PesajeModel{
-    private $db;
+class PesajeModel extends Model {
 
-    function __construct () {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_centro_acopio;charset=utf8', 'root', '');
+    public function __construct() {
+        parent::__construct();
     }
-
 
     function insertPesaje($peso, $material, $cartonero){
         $sentencia = $this->db->prepare("INSERT INTO pesaje(peso, id_material, id_cartonero) VALUES(?,?,?)");

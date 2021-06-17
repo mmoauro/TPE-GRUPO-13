@@ -1,19 +1,12 @@
 <?php
-//Incluyo lel archivo
-require_once('./libs/smarty/Smarty.class.php');
+require_once 'View/View.php';
 
-class PesajeView {
+class PesajeView extends View {
 
-    private $smarty;
-
-    //Creo el constructor
-    public function __construct(){
-        $this->smarty = new Smarty();
-        $this->smarty->assign('base_url', BASE_URL);
+    public function __construct($is_secretaria, $is_logged){
+        parent::__construct($is_secretaria, $is_logged);
     }
 
-
-    //Muestra, por ahora, solo los materiales que se aceptan
     function showFormularioPesaje($materiales,$cartoneros, $men) {
         $this->smarty->assign('materiales', $materiales);
         $this->smarty->assign('cartoneros', $cartoneros);

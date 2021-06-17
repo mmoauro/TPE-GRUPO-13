@@ -1,6 +1,6 @@
 <?php
 
-class CartonerosModel{
+class CartoneroModel{
     
     private $db;
 
