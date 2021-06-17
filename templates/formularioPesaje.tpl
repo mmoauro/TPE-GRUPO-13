@@ -1,10 +1,14 @@
 {include file="header.tpl"} <!--Incluyo el header-->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css/pesajeMateriales.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+
+{include file="nav.tpl"} <!--Incluyo el nav-->
 
 <!--div contenido registro de solicitar retiro de materiales, contiene:
     -FORMULARIO-->
-    <main class="contenedorRegistro">
+    <main class="contenedorRegistro body">
         <form id="form" class="formRegistro" action="insertar_peso_db" method="POST" enctype="multipart/form-data">
             <h4 class="tituloRegistro">Registrar Peso</h4>
             

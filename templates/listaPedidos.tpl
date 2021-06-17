@@ -1,7 +1,10 @@
 {include file="header.tpl"} <!--Incluyo el header-->
+    <link rel="stylesheet" href="css/listaPedidos.css">
+</head>
 
+{include file="nav.tpl"} <!--Incluyo el nav-->
 
-    <main class="divPedidos">
+    <main class="divPedidos body">
         <h2>Lista de pedidos</h2>
         
         <div class="divTabla">
