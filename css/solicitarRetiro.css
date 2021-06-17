@@ -1,0 +1,66 @@
+.contenedorRegistro {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    border: solid white 2px;
+    margin: 5px;
+}
+
+.formRegistro {
+    text-align: center;
+    background-color: #58D68D;
+    margin: 10px 0;
+    padding: 0 20px;
+    border-radius: 8px;
+}
+
+.tituloRegistro {
+    font-size: 30px;
+    color: white;
+}
+
+.inputForm {
+    display: block;
+    width: 80%;
+    background-color: #FDFEFE  ;
+    color: black;
+    padding: 10px 30px 10px 10px;
+    margin-bottom: 10px;
+    border: solid black 2px;
+    font-size: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 3px auto;
+}
+
+.tituloInputRadio {
+    display: block;
+    font-weight: bold;
+    margin: 2px;
+}
+
+.botonSubmit {
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 30px;
+    border: solid #D5F5E3 2px; 
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.map-section {
+    width: 100% !important;
+}
+
+.map-section div {
+    height: 50vh !important;
+    width: 100% !important;
+}
+
+.retiro-form {
+    width: 70%;
+    min-height: 60vh;
+    margin: auto;
+    
+}

@@ -1,20 +1,23 @@
-<aside class="contenedor-lista-materiales">
-    <h2 class="titulo-lista-materiales">Lista de Materiales Aceptables</h2>
+div<aside class="contenedor-lista-materiales">
+    <h2 class="form-title">Lista de Materiales Aceptables</h2>
     <ul class="lista-materiales">
     {foreach from=$materiales item=mat}
         <li>
             <div class="contenedor-material">
                 {if $is_secretaria}
-                    <form method="post" action="material/update/{$mat->id}">
-                        <div class="nombre">
-                            <label for="">Nombre: *</label><input type="text" name="nombre" id="mail" placeholder="Nombre" required value="{$mat->nombre}">
-                            <br>
-                            <label for="">Descripcion: *</label><textarea name="descripcion" id="password" placeholder="Descripcion" required>{$mat->descripcion}</textarea>
-                        </div>
+                    <form method="post" action="material/update/{$mat->id}" class="form edit-material-form">
+                        <section>
+                            <div>
+                                <label for="">Nombre: </label><input type="text" name="nombre" id="mail" placeholder="Nombre" required value="{$mat->nombre}">
+                            </div>
+                            <div>
+                                <label for="">Descripcion: </label><textarea name="descripcion" id="password" rows="4" cols="20" placeholder="Descripcion" required>{$mat->descripcion}</textarea>
+                            </div>
+                        </section>
 
-                        <div class="Enviar">
-
-                            <button id="buttonEnviar">Editar</button>
+                        <div class="Enviar admin-btns">
+                            <button class="btn" id="buttonEnviar">Editar</button>
+                            <a class="btn" href="{$base_url}material/delete/{$mat->id}">Eliminar</a>
                         </div>
                     </form>
                 {else}
@@ -23,23 +26,9 @@
                 {/if}
             </div>
             {if $is_secretaria}
-                <a href="{$base_url}material/delete/{$mat->id}">Eliminar</a>
+                <!-- <a class="btn" href="{$base_url}material/delete/{$mat->id}">Eliminar</a> -->
             {/if}
         </li>
     {/foreach}
     </ul>
-    {if $is_secretaria}
-        <form method="post" action="material/add">
-            <div class="nombre">
-                <label for="">Nombre: *</label><input type="text" name="nombre" id="mail" placeholder="Nombre" required>
-                <br>
-                <label for="">Descripcion: *</label><textarea name="descripcion" id="password" placeholder="Descripcion" required></textarea>
-            </div>
-
-            <div class="Enviar">
-
-                <button id="buttonEnviar">Anadir</button>
-            </div>
-        </form>
-    {/if}
 </aside>
