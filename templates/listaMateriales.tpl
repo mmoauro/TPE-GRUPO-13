@@ -1,4 +1,4 @@
-div<aside class="contenedor-lista-materiales">
+<aside class="contenedor-lista-materiales">
     <h2 class="form-title">Lista de Materiales Aceptables</h2>
     <ul class="lista-materiales">
     {foreach from=$materiales item=mat}

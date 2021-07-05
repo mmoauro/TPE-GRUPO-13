@@ -16,4 +16,10 @@ class CartoneroModel{
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    function getCartonero($id) {
+        $query = $this->db->prepare("SELECT nombre, apellido, dni FROM cartonero WHERE id=?");
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
 }
