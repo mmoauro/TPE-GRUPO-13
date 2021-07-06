@@ -16,6 +16,7 @@
                 {if $is_logged neq false}
                 <a href="{$base_url}pedidos"><li>Lista de pedidos</li></a>
                 {/if}
+                <a href="{$base_url}cargarCartonero"><li>Cargar cartonero</li></a>
             </ul>
         </nav>
     </header>
