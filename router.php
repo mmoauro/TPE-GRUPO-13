@@ -8,8 +8,9 @@
     require_once 'Controller/PesajeController.php';
     require_once 'Controller/PedidoController.php';
     require_once 'Controller/AcopiadoController.php';
-    
-    // CONSTANTES PARA RUTEO
+    require_once 'Controller/CartoneroController.php';
+
+// CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("SOLICITAR_RETIRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/solicitarRetiro');
     define("CARGAR_CARTONERO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/cargarCartonero');

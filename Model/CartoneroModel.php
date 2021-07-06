@@ -1,12 +1,10 @@
 <?php
+require_once 'Model/Model.php';
 
-class CartoneroModel{
-    
-    private $db;
+class CartoneroModel Extends Model{
 
-    //Conexion a la base de datos
-    function __construct () {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_centro_acopio;charset=utf8', 'root', '');
+    public function __construct() {
+        parent::__construct();
     }
 
     //Pido los materiales que acepta el centro de acopio

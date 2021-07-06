@@ -1,16 +1,15 @@
 <?php
+require_once 'Model/Model.php';
 
-class PedidoModel {
+class PedidoModel extends Model{
 
-    //Conexion a la base de datos
-    function GetDBConnection(){
-        return  new PDO('mysql:host=localhost;'.'dbname=db_centro_acopio;charset=utf8', 'root', '');
+    public function __construct() {
+        parent::__construct();
     }
 
     //Obtengo todos los pedidos de la base de datos
     function getPedidos(){
-        $db = $this->GetDBConnection();
-        $sentencia = $db->prepare("SELECT * FROM solicitud_retiro");
+        $sentencia = $this->db->prepare("SELECT * FROM solicitud_retiro");
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
