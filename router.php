@@ -7,8 +7,9 @@
     require_once 'Controller/UserController.php';
     require_once 'Controller/PesajeController.php';
     require_once 'Controller/PedidoController.php';
-    
-    // CONSTANTES PARA RUTEO
+    require_once 'Controller/CartoneroController.php';
+
+// CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("SOLICITAR_RETIRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/solicitarRetiro');
    
@@ -37,6 +38,8 @@
     //Ruta lista de pedidos
     $r->addRoute("pedidos", "GET", "PedidoController", "mostrarPedidos");
 
+    // Rutas cartonero
+    $r->addRoute("cartoneros", "GET", "CartoneroController", "showCartoneros");
 //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
 ?>
