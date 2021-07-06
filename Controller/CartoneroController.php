@@ -1,18 +1,11 @@
 <?php
-//Incluyo los archivos
-require_once './Model/CartoneroModel.php';
-require_once './View/CartoneroView.php';
-require_once 'Controller/AuthHelper.php';
+
+require_once 'Model/CartoneroModel.php';
 require_once 'Controller/Controller.php';
+require_once 'View/CartoneroView.php';
 
-
-//Creo la clase
 class CartoneroController extends Controller {
 
-    //Atributos
-    //private $authHelper;
-
-    //Creo el constructor
     public function __construct() {
         parent::__construct();
         $this->model = new CartoneroModel();
@@ -46,5 +39,11 @@ class CartoneroController extends Controller {
     //Muestro la seccion de cargar cartonero
     function mostrarSeccionCargarCartonero(){
         $this->view->SeccionCargarCartonero();
+    }
+
+    function showCartoneros () {
+        if ($this->auth->getIsLogged() && $this->auth->getIsSecretaria()) {
+            $this->view->showCartoneros($this->model->getCartoneros());
+        }
     }
 }

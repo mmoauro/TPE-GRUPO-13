@@ -13,5 +13,10 @@ class CartoneroView extends View {
     function SeccionCargarCartonero(){
         $this->smarty->display('templates/formularioCargarCartonero.tpl');
     }
+  
+    function showCartoneros($cartoneros){
+        $this->smarty->assign('cartoneros', $cartoneros);
+        $this->smarty->display('templates/listaCartoneros.tpl');
+    }
 
 }

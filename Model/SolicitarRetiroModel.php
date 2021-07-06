@@ -11,7 +11,7 @@ class SolicitarRetiroModel extends Model {
     }
 
     function agregarImagen($img, $id_solicitud){
-        $query = $this->db->prepare('INSERT INTO imagen_solicitud (src,id_solicitud) VALUES (?,?)');
+        $query = $this->db->prepare('INSERT INTO imagen_solicitud (imagen,id_solicitud) VALUES (?,?)');
         $query->execute(array($img, $id_solicitud));
     }
 }

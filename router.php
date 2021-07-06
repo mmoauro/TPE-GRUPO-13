@@ -8,8 +8,7 @@
     require_once 'Controller/PesajeController.php';
     require_once 'Controller/PedidoController.php';
     require_once 'Controller/CartoneroController.php';
-    
-    // CONSTANTES PARA RUTEO
+
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     define("SOLICITAR_RETIRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/solicitarRetiro');
     define("CARGAR_CARTONERO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/cargarCartonero');
@@ -42,8 +41,7 @@
     // Rutas de cartoneros
     $r->addRoute("cargarCartonero", "GET", "CartoneroController", "mostrarSeccionCargarCartonero");
     $r->addRoute("cargar_cartonero", "POST", "CartoneroController", "cargarCartonero");
-
-
+    $r->addRoute("cartoneros", "GET", "CartoneroController", "showCartoneros");
 
 //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
