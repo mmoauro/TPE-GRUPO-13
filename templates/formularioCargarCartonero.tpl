@@ -36,7 +36,7 @@
                         <input class="inputForm" type="date" placeholder="Ingrese su Fecha de nacimiento" name="fechaNacimiento" required>
                     </div>
                     <div>
-                        <input class="botonSubmit" id="botonSubmit" type="submit" value="Enviar solicitud">
+                        <input class="botonSubmit" id="botonSubmit" type="submit" value="Agregar cartonero">
                     </div>
                 </section>
 
