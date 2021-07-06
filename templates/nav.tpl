@@ -17,6 +17,7 @@
                     <a href="{$base_url}pedidos"><li>Lista de pedidos</li></a>
                     <a href="{$base_url}cartoneros"><li>Lista de cartoneros</li></a>
                 {/if}
+                <a href="{$base_url}cargarCartonero"><li>Cargar cartonero</li></a>
             </ul>
         </nav>
     </header>
