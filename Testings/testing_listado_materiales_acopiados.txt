@@ -1,0 +1,12 @@
+Testing para funcionalidad listar materiales acopiados por el cartonero:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/8e56c7fc4ef719a364adca80aff8ccdd81f087a6
+
+
+Entrada: http://localhost/metodologias/acopiado/3
+Salida esperada: Listado de materiales acopiados por el cartonero con id 3.
+Salida recibida: Listado de materiales acopiados por el cartonero con id 3.
+
+Entrada: http://localhost/metodologias/acopiado/{id de un cartonero inexistente}
+Salida esperada: Listado vacio.
+Salida recibida: Listado vacio.
+
