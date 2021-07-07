@@ -26,4 +26,9 @@ class CartoneroModel Extends Model{
         return $this->db->lastInsertId();
     }
 
+    function deleteCartonero($id){
+        $sentencia = $this->db->prepare("DELETE FROM cartonero WHERE id=?");
+        $sentencia->execute(array($id));
+    }
+
 }

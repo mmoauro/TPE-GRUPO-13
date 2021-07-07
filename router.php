@@ -45,6 +45,7 @@
     // Rutas de cartoneros
     $r->addRoute("cargarCartonero", "GET", "CartoneroController", "mostrarSeccionCargarCartonero");
     $r->addRoute("cargar_cartonero", "POST", "CartoneroController", "cargarCartonero");
+    $r->addRoute("eliminarCartonero/:ID", "GET", "CartoneroController", "eliminarCartonero");
     $r->addRoute("cartoneros", "GET", "CartoneroController", "showCartoneros");
 
 //run
