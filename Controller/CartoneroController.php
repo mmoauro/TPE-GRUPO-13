@@ -36,6 +36,14 @@ class CartoneroController extends Controller {
         header('Location: '. CARGAR_CARTONERO);
     }
 
+    function eliminarCartonero($params = null){
+        if ($this->auth->getIsLogged() && $this->auth->getIsSecretaria()){ 
+            $cartonero_ID = $params[':ID'];
+            $this->model->deleteCartonero($cartonero_ID);
+            $this->view->showCartoneros($this->model->getCartoneros());
+        }
+    }
+
     //Muestro la seccion de cargar cartonero
     function mostrarSeccionCargarCartonero(){
         $this->view->SeccionCargarCartonero();

@@ -154,3 +154,9 @@ main.contenido {
     transition: 0.3s;
     background-color: rgba(128, 128, 128, 0.596);
 }
+
+.fa-trash:hover{
+    cursor: pointer;
+    transition: 0.1s;
+    color: red;
+}
