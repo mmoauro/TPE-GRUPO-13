@@ -1,4 +1,4 @@
-Testeo para funcionalidad de lista de pedidos de retiro:
+Testeo para funcionalidad del boton borrar cartonero:
 Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/9d591d5e2ab1a97c55961351469a3c03143209f7
 
 Accion: clickear boton "borrar cartonero" de la lista de cartoneros.
