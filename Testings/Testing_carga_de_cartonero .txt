@@ -1,0 +1,14 @@
+Testing para funcionalidad cargar datos de un cartonero:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/3fae124c9b524ef8e45394932d00456789900a56
+
+Datos de entrada: Nombre: Juan , Apellido: Perez , Dni: 44444444 , Direccion: Av. España 111 , Fecha de nacimiento: 1/1/2000
+Salida esperada: Se registran los datos correctamente
+Salida recibida: Se registran los datos correctamente
+
+Datos de entrada: Nombre: Juan , Apellido: Perez , Dni: - , Direccion: Av. España 111 , Fecha de nacimiento: 1/1/2000
+Salida esperada: Se registran los datos correctamente
+Salida recibida: Ingresar DNI
+
+Datos de entrada: Nombre: Juan , Apellido: Perez , Dni: 44444444 , Direccion: Av. España 111 , Fecha de nacimiento: 1/1/2000
+Salida esperada: Se registran los datos correctamente
+Salida recibida: Nos se registran los datos, ya existe un cartonero con el mismo DNI
