@@ -1,0 +1,6 @@
+Testeo para funcionalidad del boton borrar cartonero:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/9d591d5e2ab1a97c55961351469a3c03143209f7
+
+Accion: clickear boton "borrar cartonero" de la lista de cartoneros.
+Resultado esperado: eliminacion de cartonero en la base de datos y recargar lista de cartoneros.
+Resultado obtenido: eliminacion de cartonero en la base de datos y recargar lista de cartoneros.

@@ -1,0 +1,7 @@
+Testing para funcionalidad listar cartoneros:
+Link del commit: https://github.com/mmoauro/TPE-GRUPO-13/commit/b93bf5c6850a3801ac89b8e9fe5f915ab53bbb88
+
+
+Entrada: http://localhost/metodologias/cartoneros
+Salida esperada: Listado de cartoneros con sus datos.
+Salida recibida: Listado de cartoneros con sus datos.

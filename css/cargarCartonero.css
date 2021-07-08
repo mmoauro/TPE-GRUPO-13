@@ -1,9 +1,14 @@
-.contenedorRegistro {
+.body {
     display: flex;
     justify-content: center;
     width: auto;
     border: solid white 2px;
     margin: 5px;
+}
+
+.form-container {
+    text-align: center;
+    background-color: #58D68D;
 }
 
 .formRegistro {
@@ -14,9 +19,9 @@
     border-radius: 8px;
 }
 
-.tituloRegistro {
+.form-title {
     font-size: 30px;
-    color: white;
+    color: black;
 }
 
 .inputForm {
@@ -55,7 +60,7 @@
 
 .map-section div {
     height: 50vh !important;
-    
+    width: 100% !important;
 }
 
 .retiro-form {
@@ -63,8 +68,4 @@
     min-height: 60vh;
     margin: auto;
     
-}
-
-.map-section .leaflet-bottom {
-    visibility: hidden;
 }

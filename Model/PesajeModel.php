@@ -12,4 +12,15 @@ class PesajeModel extends Model {
         $sentencia->execute(array($peso, $material, $cartonero));
     }
 
+    
+    function getPesajeOrderByMaterialFrom($id) {
+        $sentencia = $this->db->prepare("SELECT SUM(peso) AS peso, nombre 
+        FROM pesaje p JOIN material m ON (p.id_material = m.id) 
+        WHERE id_cartonero=? 
+        GROUP BY nombre ORDER BY nombre;"
+        );
+        $sentencia->execute([$id]);
+        return $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }

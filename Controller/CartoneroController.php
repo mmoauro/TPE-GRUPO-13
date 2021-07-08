@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Model/CartoneroModel.php';
 require_once 'Controller/Controller.php';
 require_once 'View/CartoneroView.php';
@@ -9,6 +10,43 @@ class CartoneroController extends Controller {
         parent::__construct();
         $this->model = new CartoneroModel();
         $this->view = new CartoneroView($this->auth->getIsSecretaria(), $this->auth->getIsLogged());
+    }   
+
+    function cargarCartonero(){
+        $cartoneros = $this->model->getCartoneros();
+
+        if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["DNI"]) && isset($_POST["direccion"]) && isset($_POST["fechaNacimiento"]) ){
+            $nombre = $_POST["nombre"];
+            $apellido = $_POST["apellido"];
+            $DNI = $_POST["DNI"];
+            $direccion = $_POST["direccion"];
+            $fechaNacimiento = $_POST["fechaNacimiento"];
+        }
+        $existe = false;
+        foreach($cartoneros as $cartonero){
+            if($DNI == $cartonero->dni){
+                $existe = true;
+            }
+        }
+
+        if($existe == false){
+            $this->model->agregarCartonero($nombre, $apellido, $DNI, $direccion, $fechaNacimiento);
+        }
+        
+        header('Location: '. CARGAR_CARTONERO);
+    }
+
+    function eliminarCartonero($params = null){
+        if ($this->auth->getIsLogged() && $this->auth->getIsSecretaria()){ 
+            $cartonero_ID = $params[':ID'];
+            $this->model->deleteCartonero($cartonero_ID);
+            $this->view->showCartoneros($this->model->getCartoneros());
+        }
+    }
+
+    //Muestro la seccion de cargar cartonero
+    function mostrarSeccionCargarCartonero(){
+        $this->view->SeccionCargarCartonero();
     }
 
     function showCartoneros () {
@@ -22,7 +60,7 @@ class CartoneroController extends Controller {
             $id = $params[':ID'];
             //se rompe el estilo 
             $cartoneros =  $this->model->getCartoneros();
-            $cartonero = $this->model->getCartonero($id);
+            $cartonero = $this->model->GetCartonero2($id);
             $this->view->showCartoneros($cartoneros, $cartonero);
         }
     }
@@ -40,5 +78,4 @@ class CartoneroController extends Controller {
             $this->view->showCartoneros($this->model->getCartoneros());
         }
     }
-
 }

@@ -17,6 +17,8 @@
                 <th>DNI</th>
                 <th>Direccion</th>
                 <th>Fecha de nacimiento</th>
+                <th>Borrar</th>
+                <th>Acopiado</th>
                 <th>Editar</th>
             </thead>
             <tbody id="bodyTabla">
@@ -27,6 +29,8 @@
                     <td>{$cartonero->dni}</td>
                     <td>{$cartonero->direccion}</td>
                     <td>{$cartonero->fecha_nacimiento}</td>
+                    <td class="botonBorrar"> <a href='eliminarCartonero/{$cartonero->id}'> <i class="fa fa-trash" style="font-size:36px"></i></a></td>
+                    <td><a href='acopiado/{$cartonero->id}'><i class="fa fa-recycle" style="font-size:36px"</i></a></td>
                     <td><button> <a href="edit/{$cartonero->id}">Editar</a> </button></td>
                 </tr>
             {/foreach}
