@@ -25,14 +25,14 @@ class PesajeController extends Controller {
     }
 
      function agregarPesaje(){
-         $materialModel = new MaterialModel();
-         $materiales = $materialModel->getMateriales();
-         $cartoneroModel = new CartoneroModel();
-         $cartoneros = $cartoneroModel->getCartoneros();
+        $materialModel = new MaterialModel();
+        $materiales = $materialModel->getMateriales();
+        $cartoneroModel = new CartoneroModel();
+        $cartoneros = $cartoneroModel->getCartoneros();
         $mensaje = '';
-        if($_POST['peso'] >= 0){
-            if (!empty($_POST['peso']) && !empty($_POST['material']) && !empty($_POST['cartonero'])){
-                $this->model->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero']);
+        if($_POST['peso'] > 0){
+            if (isset($_POST['peso']) && isset($_POST['material']) && isset($_POST['cartonero'])){
+                $this->model->insertPesaje($_POST['peso'], $_POST['material'], $_POST['cartonero'] == '0' ? null : $_POST['cartonero']);
                 $mensaje = 'Se registro el peso con exito!';
             }
         }

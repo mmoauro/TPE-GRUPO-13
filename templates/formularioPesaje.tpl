@@ -23,13 +23,9 @@
             {if isset($cartoneros)}
             <select name="cartonero" id="select">
                 {foreach from=$cartoneros item=persona}
-                {if $persona->id == 0}
-                    <option value="{$persona->id}">{$persona->nombre}</option>
-                {else}
                     <option value="{$persona->id}">{$persona->nombre}. DNI: {$persona->dni}</option>
-                {/if}
-
                 {/foreach}
+                <option value="0">Vecino buena onda</option>
             </select>
             {/if}
             <input class="botonSubmit" id="botonSubmit" type="submit" value="Enviar">

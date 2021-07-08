@@ -17,6 +17,7 @@
                     <a href="{$base_url}pedidos"><li>Lista de pedidos</li></a>
                     <a href="{$base_url}cartoneros"><li>Lista de cartoneros</li></a>
                     <a href="{$base_url}cargarCartonero"><li>Cargar cartonero</li></a>
+                    <a href="{$base_url}registrar_peso"><li>Registrar pesaje</li></a>
                 {/if}
             </ul>
         </nav>
