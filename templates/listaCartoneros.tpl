@@ -35,6 +35,7 @@
     </div>
 
     {if $car != null}
+    <article class="form-container">
     <form method="POST" action="edit/{$car->id}" class="form">
         <section>
             <div>
@@ -57,9 +58,11 @@
             <button class="btn" id="buttonEnviar">Anadir</button>
         </div>
     </form>
+    </article>
     {/if}
     
      {if $car == null}
+    <article class="form-container">
     <form method="POST" action="edit/:ID" class="form">
         <section>
             <div>
@@ -82,6 +85,7 @@
             <button class="btn" id="buttonEnviar">Anadir</button>
         </div>
     </form>
+    </article>
     {/if}
 
 </main>
