@@ -16,4 +16,15 @@ class CartoneroModel{
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    function getCartonero($id){
+        $query = $this->db->prepare("SELECT * FROM cartonero WHERE id=?");
+        $query->execute(array($id));
+        return $query->fetch(PDO::FETCH_OBJ);  
+    }
+
+    function editarCartonero($id, $nombre, $apellido, $dni, $direccion, $fecha_nac){
+        $query = $this->db->prepare("UPDATE cartonero SET id=?, nombre=?, apellido=?, dni=?, direccion=?, fecha_nacimiento=? WHERE id=$id");
+        $query->execute(array($id, $nombre, $apellido, $dni, $direccion, $fecha_nac));
+    }
+
 }

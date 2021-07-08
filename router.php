@@ -40,6 +40,9 @@
 
     // Rutas cartonero
     $r->addRoute("cartoneros", "GET", "CartoneroController", "showCartoneros");
+    $r->addRoute("edit/:ID", "GET", "CartoneroController", "editDatosCartonero");
+    $r->addRoute("edit/:ID", "POST", "CartoneroController", "editCartonero");
+
 //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
 ?>
