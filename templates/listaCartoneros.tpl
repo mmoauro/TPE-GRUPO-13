@@ -16,6 +16,7 @@
                 <th>Direccion</th>
                 <th>Fecha de nacimiento</th>
                 <th>Borrar</th>
+                <th>Acopiado</th>
             </thead>
             <tbody id="bodyTabla">
             {foreach from=$cartoneros  item=cartonero}
@@ -26,6 +27,7 @@
                     <td>{$cartonero->direccion}</td>
                     <td>{$cartonero->fecha_nacimiento}</td>
                     <td class="botonBorrar"> <a href='eliminarCartonero/{$cartonero->id}'> <i class="fa fa-trash" style="font-size:36px"></i></a></td>
+                    <td><a href='acopiado/{$cartonero->id}'><i class="fa fa-recycle" style="font-size:36px"</i></a></td>
                 </tr>
             {/foreach}
             </tbody>

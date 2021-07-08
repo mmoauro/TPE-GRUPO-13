@@ -55,7 +55,7 @@
 
 .map-section div {
     height: 50vh !important;
-    width: 100% !important;
+    
 }
 
 .retiro-form {
@@ -63,4 +63,8 @@
     min-height: 60vh;
     margin: auto;
     
+}
+
+.map-section .leaflet-bottom {
+    visibility: hidden;
 }
